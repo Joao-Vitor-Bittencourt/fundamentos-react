@@ -2,14 +2,16 @@ import React from 'react';
 
 import Post from './Post';
 
+import Header from './Header';
+
 const category = 'Posts da semana';
 
 function App() {
   return (
     <>
-      <h1>JStack's Blog</h1>
-      <h2>Posts da semana</h2>
-
+      <Header title='JStacks Blog'>
+        <h2> Subtitulo 2 ---- </h2>
+      </Header>
       <hr />
 
       <Post 
