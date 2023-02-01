@@ -4,6 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   entry: path.resolve(__dirname, 'src', 'index.js'),
+  mode: 'development',
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle[hash].js', 
@@ -22,5 +23,8 @@ module.exports = {
         use: 'babel-loader',
       },
     ]
+  },
+  devServer: {
+    port: 3000,
   }
 };
