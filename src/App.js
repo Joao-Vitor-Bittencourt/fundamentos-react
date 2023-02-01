@@ -4,8 +4,6 @@ import Post from './Post';
 
 import Header from './Header';
 
-const category = 'Posts da semana';
-
 function App() {
   return (
     <>
@@ -15,15 +13,24 @@ function App() {
       <hr />
 
       <Post 
+        likes={20}
         post={{
           title: 'Noticia 1',
           subtitle: 'Subtitulo 1'
         }}
       />
-      <Post 
+      <Post
+        likes={50}
         post={{
           title: 'Noticia 2',
           subtitle: 'Subtitulo 2'
+        }}
+      />
+      <Post
+        likes={10}
+        post={{
+          title: 'Noticia 3',
+          subtitle: 'Subtitulo 3'
         }}
       />
     </>
