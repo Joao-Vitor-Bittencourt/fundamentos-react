@@ -4,6 +4,12 @@ import Post from './Post';
 
 import Header from './Header';
 
+const posts = [
+  {title: 'Title#1', subtitle: 'Sub#1', likes: 20},
+  {title: 'Title#2', subtitle: 'Sub#2', likes: 50},
+  {title: 'Title#3', subtitle: 'Sub#3', likes: 10},
+]
+
 function App() {
   return (
     <>
@@ -12,27 +18,17 @@ function App() {
       </Header>
       <hr />
 
-      <Post 
-        likes={20}
-        post={{
-          title: 'Noticia 1',
-          subtitle: 'Subtitulo 1'
-        }}
-      />
-      <Post
-        likes={50}
-        post={{
-          title: 'Noticia 2',
-          subtitle: 'Subtitulo 2'
-        }}
-      />
-      <Post
-        likes={10}
-        post={{
-          title: 'Noticia 3',
-          subtitle: 'Subtitulo 3'
-        }}
-      />
+      {posts.map(post => (
+        <Post
+          key={post.title}
+          likes={post.likes}
+          post={{
+            title: post.title,
+            subtitle: post.subtitle,
+          }}
+        />
+      ))}
+      
     </>
   )
 }
