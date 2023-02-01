@@ -19,8 +19,10 @@ function App() {
         }}
       />
       <Post 
-        title='Noticia 2'
-        subtitle='Noticia 2'
+        post={{
+          title: 'Noticia 2',
+          subtitle: 'Subtitulo 2'
+        }}
       />
     </>
   )
