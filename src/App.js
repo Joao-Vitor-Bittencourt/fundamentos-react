@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Post from './Post';
 
 import Header from './Header';
+import { checkPropTypes } from 'prop-types';
 
 function App() {
   const [posts, setPosts] = useState([
@@ -12,17 +13,21 @@ function App() {
   ])
 
   function handleRefresh() {
-    setTimeout(() => {
-      setPosts((prevState) => [
-        ...prevState,
-        {
-          id: Math.random(),
-          title: `Title#${prevState.length + 1}`,
-          subtitle: `Sub#${prevState.length + 1}`,
-          likes: 20 
-        }
-      ])
-    }, 2000);
+    setPosts((prevState) => [
+      ...prevState,
+      {
+        id: Math.random(),
+        title: `Title#${prevState.length + 1}`,
+        subtitle: `Sub#${prevState.length + 1}`,
+        likes: 20 
+      }
+    ]);
+  }
+
+  function handleRemovePost(postId) {
+    setPosts((prevState) => (
+      prevState.filter(post => post.id !== postId)
+    ));
   }
 
   return (
@@ -38,7 +43,9 @@ function App() {
         <Post
           key={post.title}
           likes={post.likes}
+          onRemove={handleRemovePost}
           post={{
+            id: post.id,
             title: post.title,
             subtitle: post.subtitle,
           }}
