@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 
 import Post from './Post';
-
 import Header from './Header';
-import { checkPropTypes } from 'prop-types';
 
-function App() {
+export default function App() {
   const [posts, setPosts] = useState([
     { id: Math.random(), title: 'Title#1', subtitle: 'Sub#1', likes: 20, read: false },
     { id: Math.random(), title: 'Title#2', subtitle: 'Sub#2', likes: 20, read: true },
@@ -21,7 +19,7 @@ function App() {
         id: Math.random(),
         title: `Title#${prevState.length + 1}`,
         subtitle: `Sub#${prevState.length + 1}`,
-        likes: 20 
+        likes: 20,
       }
     ]);
   }
@@ -35,8 +33,10 @@ function App() {
   return (
     <>
       <Header title='JStacks Blog'>
-        <h2> Subtitulo 2 ---- </h2>
-        <button onClick={handleRefresh}> Atualizar </button>
+        <h2>
+          Posts da Semana
+          <button onClick={handleRefresh}>Atualizar</button>
+        </h2>
       </Header>
 
       <hr />
@@ -52,5 +52,3 @@ function App() {
     </>
   )
 }
-
-export default App;
