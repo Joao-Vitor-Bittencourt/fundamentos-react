@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 
 import Post from './Post';
 import Header from './Header';
+import { ThemeProvider } from './ThemeContext';
 
 export default function App() {
+
+
   const [posts, setPosts] = useState([
     { id: Math.random(), title: 'Title#1', subtitle: 'Sub#1', likes: 20, read: false },
     { id: Math.random(), title: 'Title#2', subtitle: 'Sub#2', likes: 20, read: true },
@@ -20,6 +23,7 @@ export default function App() {
         title: `Title#${prevState.length + 1}`,
         subtitle: `Sub#${prevState.length + 1}`,
         likes: 20,
+        read: true,
       }
     ]);
   }
@@ -31,8 +35,8 @@ export default function App() {
   }
 
   return (
-    <>
-      <Header title='JStacks Blog'>
+    <ThemeProvider>
+      <Header>
         <h2>
           Posts da Semana
           <button onClick={handleRefresh}>Atualizar</button>
@@ -48,7 +52,6 @@ export default function App() {
           post={post}
         />
       ))}
-      
-    </>
+    </ThemeProvider>
   )
 }
